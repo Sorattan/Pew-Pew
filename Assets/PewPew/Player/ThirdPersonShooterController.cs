@@ -5,6 +5,18 @@ using UnityEngine;
 
 public class ThirdPersonShooterController : MonoBehaviour
 {
+    public Transform LeftHandIKTarget;
+    public Transform RightHandIKTarget;
+    public Transform LeftElbowIKTarget;
+    public Transform RightElbowIKTarget;
+
+    [Range(0f, 1f)]
+    public float HandIKAmount = 1f;
+    [Range(0f, 1f)]
+    public float ElbowIKAmount = 1f;
+
+    private Animator Animator;
+
     [SerializeField] private CinemachineCamera aimVirtualCamera;
     [SerializeField] private float normalSensitivity;
     [SerializeField] private float aimSensitivity;
@@ -14,13 +26,40 @@ public class ThirdPersonShooterController : MonoBehaviour
 
     private ThirdPersonController thirdPersonController;
     private StarterAssetsInputs starterAssetsInputs;
-    private Animator animator;
+
+    private void OnAnimatorIK(int layerIndex)
+    {
+        if (LeftHandIKTarget != null)
+        {
+            Animator.SetIKRotationWeight(AvatarIKGoal.LeftHand, HandIKAmount);
+            Animator.SetIKPositionWeight(AvatarIKGoal.LeftHand, HandIKAmount);
+            Animator.SetIKPosition(AvatarIKGoal.LeftHand, LeftHandIKTarget.position);
+            Animator.SetIKRotation(AvatarIKGoal.LeftHand, LeftHandIKTarget.rotation);
+        }
+        if (RightHandIKTarget != null) 
+        {
+            Animator.SetIKRotationWeight(AvatarIKGoal.RightHand, HandIKAmount);
+            Animator.SetIKPositionWeight(AvatarIKGoal.RightHand, HandIKAmount);
+            Animator.SetIKPosition(AvatarIKGoal.RightHand, RightHandIKTarget.position);
+            Animator.SetIKRotation(AvatarIKGoal.RightHand, RightHandIKTarget.rotation);
+        }
+        if (LeftElbowIKTarget != null)
+        {
+            Animator.SetIKHintPosition(AvatarIKHint.LeftElbow, LeftElbowIKTarget.position);
+            Animator.SetIKHintPositionWeight(AvatarIKHint.LeftElbow, ElbowIKAmount);
+        }
+        if (RightElbowIKTarget != null)
+        {
+            Animator.SetIKHintPosition(AvatarIKHint.RightElbow, RightElbowIKTarget.position);
+            Animator.SetIKHintPositionWeight(AvatarIKHint.RightElbow, ElbowIKAmount);
+        }
+    }
 
     private void Awake()
     {
         thirdPersonController = GetComponent<ThirdPersonController>();
         starterAssetsInputs = GetComponent<StarterAssetsInputs>();
-        animator = GetComponent<Animator>();
+        Animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -42,7 +81,7 @@ public class ThirdPersonShooterController : MonoBehaviour
             aimVirtualCamera.gameObject.SetActive(true);
             thirdPersonController.SetSensitivity(aimSensitivity);
             thirdPersonController.SetRotateOnMove(false);
-            animator.SetLayerWeight(1, Mathf.Lerp(animator.GetLayerWeight(1), 1f, Time.deltaTime * 10f));
+            Animator.SetLayerWeight(1, Mathf.Lerp(Animator.GetLayerWeight(1), 1f, Time.deltaTime * 10f));
 
             Vector3 worldAimTarget = mouseWorldPosition;
             worldAimTarget.y = transform.position.y;
@@ -54,7 +93,7 @@ public class ThirdPersonShooterController : MonoBehaviour
             aimVirtualCamera.gameObject.SetActive(false);
             thirdPersonController.SetSensitivity(normalSensitivity);
             thirdPersonController.SetRotateOnMove(true);
-            animator.SetLayerWeight(1, Mathf.Lerp(animator.GetLayerWeight(1), 0f, Time.deltaTime * 10f));
+            Animator.SetLayerWeight(1, Mathf.Lerp(Animator.GetLayerWeight(1), 0f, Time.deltaTime * 10f));
         }
 
         if (starterAssetsInputs.shoot)
