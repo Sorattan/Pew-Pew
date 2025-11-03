@@ -18,14 +18,6 @@ public class BulletProjectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<BulletTarget>() != null)
-        {
-            //hit target
-        }
-        else
-        {
-            //hit something else
-        }
         Destroy(gameObject);
     }
 }

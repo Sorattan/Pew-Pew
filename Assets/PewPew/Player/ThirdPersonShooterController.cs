@@ -10,10 +10,8 @@ public class ThirdPersonShooterController : MonoBehaviour
     public Transform LeftElbowIKTarget;
     public Transform RightElbowIKTarget;
 
-    [Range(0f, 1f)]
-    public float HandIKAmount = 1f;
-    [Range(0f, 1f)]
-    public float ElbowIKAmount = 1f;
+    [Range(0f, 1f)] public float HandIKAmount = 1f;
+    [Range(0f, 1f)] public float ElbowIKAmount = 1f;
 
     private Animator Animator;
 
