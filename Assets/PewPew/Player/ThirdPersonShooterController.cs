@@ -2,10 +2,16 @@ using StarterAssets;
 using Unity.Cinemachine;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 
 public class ThirdPersonShooterController : MonoBehaviour
 {
     private Animator Animator;
+
+    [Header("Rigging")]
+    [SerializeField] private Rig aimRig;
+    [SerializeField] private Transform aimTarget;
+    [SerializeField] private float rigBlendSpeed = 10f;
 
     [SerializeField] private CinemachineCamera aimVirtualCamera;
     [SerializeField] private float normalSensitivity;
@@ -35,7 +41,15 @@ public class ThirdPersonShooterController : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit raycastHit, 999f, aimColliderLayerMask))
         {
             mouseWorldPosition = raycastHit.point;
+            aimTarget.position = mouseWorldPosition;
+
+            float targetRigW = starterAssetsInputs.aim ? 1f : 0f;
+            aimRig.weight = Mathf.MoveTowards(aimRig.weight, targetRigW, Time.deltaTime * rigBlendSpeed);
             //hitTransfrom = raycastHit.transform;
+        }
+        else
+        {
+            aimTarget.position = ray.origin + ray.direction * 100f;
         }
 
         if (starterAssetsInputs.aim)
