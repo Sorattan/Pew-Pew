@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3754dda7f5e5744b3db9e6c4a09f03, type: 3}
   m_Name: Rifle
   m_EditorClassIdentifier: 
-  Type: 0
-  Name: 
-  ModelPrefab: {fileID: 0}
-  SpawnPoint: {x: 0, y: 0, z: 0}
-  SpawnRotation: {x: 0, y: 0, z: 0}
-  ShootConfig: {fileID: 0}
-  TrailConfig: {fileID: 0}
+  Type: 1
+  Name: Rifle
+  ModelPrefab: {fileID: 919132149155446097, guid: 57500286b5a4ff443a657959579c2574, type: 3}
+  SpawnPoint: {x: 1973016, y: 4809889, z: 8189976}
+  SpawnRotation: {x: 0, y: -90, z: 90}
+  ShootConfig: {fileID: 11400000, guid: c69bd780988bb354ebe47595a38cde5a, type: 2}
+  TrailConfig: {fileID: 11400000, guid: 64455541163ee5e47adf8279d486c699, type: 2}

@@ -5,14 +5,6 @@ using UnityEngine;
 
 public class ThirdPersonShooterController : MonoBehaviour
 {
-    public Transform LeftHandIKTarget;
-    public Transform RightHandIKTarget;
-    public Transform LeftElbowIKTarget;
-    public Transform RightElbowIKTarget;
-
-    [Range(0f, 1f)] public float HandIKAmount = 1f;
-    [Range(0f, 1f)] public float ElbowIKAmount = 1f;
-
     private Animator Animator;
 
     [SerializeField] private CinemachineCamera aimVirtualCamera;
@@ -24,34 +16,6 @@ public class ThirdPersonShooterController : MonoBehaviour
 
     private ThirdPersonController thirdPersonController;
     private StarterAssetsInputs starterAssetsInputs;
-
-    private void OnAnimatorIK(int layerIndex)
-    {
-        if (LeftHandIKTarget != null)
-        {
-            Animator.SetIKRotationWeight(AvatarIKGoal.LeftHand, HandIKAmount);
-            Animator.SetIKPositionWeight(AvatarIKGoal.LeftHand, HandIKAmount);
-            Animator.SetIKPosition(AvatarIKGoal.LeftHand, LeftHandIKTarget.position);
-            Animator.SetIKRotation(AvatarIKGoal.LeftHand, LeftHandIKTarget.rotation);
-        }
-        if (RightHandIKTarget != null) 
-        {
-            Animator.SetIKRotationWeight(AvatarIKGoal.RightHand, HandIKAmount);
-            Animator.SetIKPositionWeight(AvatarIKGoal.RightHand, HandIKAmount);
-            Animator.SetIKPosition(AvatarIKGoal.RightHand, RightHandIKTarget.position);
-            Animator.SetIKRotation(AvatarIKGoal.RightHand, RightHandIKTarget.rotation);
-        }
-        if (LeftElbowIKTarget != null)
-        {
-            Animator.SetIKHintPosition(AvatarIKHint.LeftElbow, LeftElbowIKTarget.position);
-            Animator.SetIKHintPositionWeight(AvatarIKHint.LeftElbow, ElbowIKAmount);
-        }
-        if (RightElbowIKTarget != null)
-        {
-            Animator.SetIKHintPosition(AvatarIKHint.RightElbow, RightElbowIKTarget.position);
-            Animator.SetIKHintPositionWeight(AvatarIKHint.RightElbow, ElbowIKAmount);
-        }
-    }
 
     private void Awake()
     {
@@ -85,36 +49,36 @@ public class ThirdPersonShooterController : MonoBehaviour
             worldAimTarget.y = transform.position.y;
             Vector3 aimDirection = (worldAimTarget - transform.position).normalized;
             transform.forward = Vector3.Lerp(transform.forward, aimDirection, Time.deltaTime * 20f);
+
+            if (starterAssetsInputs.shoot)
+            {
+                //Hitscan
+                //if (hitTransfrom != null)
+                //{
+                //    // hit something
+                //    if (hitTransfrom.GetComponent<BulletTarget>() != null)
+                //    {
+                //        //hit target
+                //    }
+                //    else
+                //    {
+                //        //hit something else
+                //    }
+                //    Destroy(gameObject);
+                //}
+
+                //Projectile
+                Vector3 aimDir = (mouseWorldPosition - spawnBulletPosition.position).normalized;
+                Instantiate(pfBulletProjectile, spawnBulletPosition.position, Quaternion.LookRotation(aimDir, Vector3.up));
+                starterAssetsInputs.shoot = false;
+            }
         }
         else
         {
             aimVirtualCamera.gameObject.SetActive(false);
             thirdPersonController.SetSensitivity(normalSensitivity);
             thirdPersonController.SetRotateOnMove(true);
-            Animator.SetLayerWeight(1, Mathf.Lerp(Animator.GetLayerWeight(1), 0f, Time.deltaTime * 10f));
-        }
-
-        if (starterAssetsInputs.shoot)
-        {
-            //Hitscan
-            //if (hitTransfrom != null)
-            //{
-            //    // hit something
-            //    if (hitTransfrom.GetComponent<BulletTarget>() != null)
-            //    {
-            //        //hit target
-            //    }
-            //    else
-            //    {
-            //        //hit something else
-            //    }
-            //    Destroy(gameObject);
-            //}
-            
-            //Projectile
-            Vector3 aimDir = (mouseWorldPosition - spawnBulletPosition.position).normalized;
-            Instantiate(pfBulletProjectile, spawnBulletPosition.position, Quaternion.LookRotation(aimDir, Vector3.up));
-            starterAssetsInputs.shoot = false;
+            // Animator.SetLayerWeight(1, Mathf.Lerp(Animator.GetLayerWeight(1), 0f, Time.deltaTime * 10f));
         }
     }
 }

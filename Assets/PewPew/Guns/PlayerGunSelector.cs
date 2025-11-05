@@ -8,7 +8,7 @@ public class PlayerGunSelector : MonoBehaviour
     [SerializeField] private GunType Gun;
     [SerializeField] private Transform GunParent;
     [SerializeField] private List<GunScriptableObject> Guns;
-    //[SerializeField] private PlayerIK InverseKinematics;
+    [SerializeField] private PlayerIK InverseKinematics;
 
     [Space]
     [Header("Runtime Filled")]
@@ -27,10 +27,10 @@ public class PlayerGunSelector : MonoBehaviour
         ActiveGun = gun;
         gun.Spawn(GunParent, this);
 
-        //Transform[] allChildren = GunParent.GetComponentsInChildren<Transform>();
-        //InverseKinematics.LeftElbowIKTarget = allChildren.FirstOrDefault(child => child.name == "LeftElbow");
-        //InverseKinematics.RightElbowIKTarget = allChildren.FirstOrDefault(child => child.name == "RightElbow");
-        //InverseKinematics.LeftHandIKTarget = allChildren.FirstOrDefault(child => child.name == "LeftHand");
-        //InverseKinematics.RightHandIKTarget = allChildren.FirstOrDefault(child => child.name == "RightHand");
+        Transform[] allChildren = GunParent.GetComponentsInChildren<Transform>();
+        InverseKinematics.LeftElbowIKTarget = allChildren.FirstOrDefault(child => child.name == "LeftElbow");
+        InverseKinematics.RightElbowIKTarget = allChildren.FirstOrDefault(child => child.name == "RightElbow");
+        InverseKinematics.LeftHandIKTarget = allChildren.FirstOrDefault(child => child.name == "LeftHand");
+        InverseKinematics.RightHandIKTarget = allChildren.FirstOrDefault(child => child.name == "RightHand");
     }
 }
