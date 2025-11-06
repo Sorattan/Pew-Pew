@@ -2,30 +2,34 @@ using UnityEngine;
 
 public class BulletProjectile : MonoBehaviour
 {
-    private Rigidbody bulletRigidbody;
+    public int damage = 10; 
 
-    private void Awake()
-    {
-        bulletRigidbody = GetComponent<Rigidbody>();
-    }
+    /**
+     * Bu fonksiyonun çalıştığını KONSOLDAKİ LOG İLE KANITLADIN.
+     * Şimdi hasar verme kodunu buraya ekliyoruz.
+     */
+    private void OnCollisionEnter(Collision collision)
+{
+    // 1. Konsola çarptığı şeyi yaz
+    Debug.Log("BotBullet (OnCollisionEnter) şuna çarptı: " + collision.gameObject.name);
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private void Start()
-    {
-        float speed = 45f;
-        bulletRigidbody.linearVelocity = transform.forward * speed;
-    }
+    // 2. 'PlayerHealth' script'ini ara
+    PlayerHealth player = collision.gameObject.GetComponentInParent<PlayerHealth>();
 
-    private void OnTriggerEnter(Collider other)
+    // 3. Script'i bulup bulamadığını KONTROL ET
+    if (player != null)
     {
-        if (other.GetComponent<BulletTarget>() != null)
-        {
-            //hit target
-        }
-        else
-        {
-            //hit something else
-        }
-        Destroy(gameObject);
+        // EĞER SİSTEM ÇALIŞIYORSA, BU MESAJI GÖRMELİYİZ
+        Debug.Log("PlayerHealth script'i BAŞARIYLA BULUNDU. Hasar veriliyor.");
+        player.TakeDamage(damage);
     }
+    else
+    {
+        // EĞER SİSTEM ÇALIŞMIYORSA, SEBEBİ BUDUR
+        Debug.LogWarning("PlayerHealth script'i BULUNAMADI! 'GetComponentInParent' başarısız oldu. 'PlayerArmature' objende 'PlayerHealth.cs' script'i ekli mi?");
+    }
+    
+    // 4. Mermi neye çarparsa çarpsın kendini yok et
+    Destroy(gameObject);
+}
 }

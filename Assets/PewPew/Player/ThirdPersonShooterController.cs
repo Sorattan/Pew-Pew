@@ -9,7 +9,7 @@ public class ThirdPersonShooterController : MonoBehaviour
     [SerializeField] private float normalSensitivity;
     [SerializeField] private float aimSensitivity;
     [SerializeField] private LayerMask aimColliderLayerMask = new LayerMask();
-    [SerializeField] private Transform pfBulletProjectile;
+    [SerializeField] private GameObject pfPlayerBullet;
     [SerializeField] private Transform spawnBulletPosition;
 
     private ThirdPersonController thirdPersonController;
@@ -57,26 +57,28 @@ public class ThirdPersonShooterController : MonoBehaviour
             animator.SetLayerWeight(1, Mathf.Lerp(animator.GetLayerWeight(1), 0f, Time.deltaTime * 10f));
         }
 
-        if (starterAssetsInputs.shoot)
+   if (starterAssetsInputs.shoot)
         {
-            //Hitscan
-            //if (hitTransfrom != null)
-            //{
-            //    // hit something
-            //    if (hitTransfrom.GetComponent<BulletTarget>() != null)
-            //    {
-            //        //hit target
-            //    }
-            //    else
-            //    {
-            //        //hit something else
-            //    }
-            //    Destroy(gameObject);
-            //}
+            // 1. 'mouseWorldPosition' değişkeni, Update() fonksiyonunun en başında,
+            //    nişangahın baktığı (veya ıskaladığı) 'gerçek dünya' noktasını zaten hesapladı.
             
-            //Projectile
+            // 2. Merminin gitmesi gereken yönü hesapla:
+            //    Yön = (Hedef Nokta 'mouseWorldPosition') - (Çıkış Noktası 'spawnBulletPosition')
             Vector3 aimDir = (mouseWorldPosition - spawnBulletPosition.position).normalized;
-            Instantiate(pfBulletProjectile, spawnBulletPosition.position, Quaternion.LookRotation(aimDir, Vector3.up));
+
+            // 3. Mermiyi namlu ucunda oluştur ve yönünü 'aimDir' olarak ayarla
+            GameObject bullet = Instantiate(pfPlayerBullet, spawnBulletPosition.position, Quaternion.LookRotation(aimDir, Vector3.up));
+            
+            // 4. Rigidbody'sini al
+            Rigidbody rb = bullet.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                // 5. Mermiyi, paralel bir yöne ('ray.direction') DEĞİL,
+                //    hesapladığımız bu 'aimDir' (gerçek hedef) yönüne doğru ATEŞLE.
+                rb.AddForce(aimDir * 45f, ForceMode.Impulse); 
+            }
+            
+            // 6. Ateş etme girdisini sıfırla
             starterAssetsInputs.shoot = false;
         }
     }

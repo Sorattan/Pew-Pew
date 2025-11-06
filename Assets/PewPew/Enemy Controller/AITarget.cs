@@ -3,6 +3,8 @@ using UnityEngine.AI; // NavMeshAgent için bu kütüphane şart
 
 public class AITarget : MonoBehaviour
 {
+   private bool isDead = false;
+
    public AudioClip footstepSound;
 
    private AudioSource audioSource; 
@@ -57,6 +59,8 @@ public class AITarget : MonoBehaviour
 
    private void Update()
     {
+        if (isDead) return;
+
         // Check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
@@ -158,23 +162,51 @@ public class AITarget : MonoBehaviour
     }
     private void AttackPlayer()
     {
-        // --- ANİMASYON AYARI ---
-        animator.SetBool("isAttacking", true); // Saldırı modundayız!
+        // --- HIZ VE ANİMASYON AYARI ---
+        animator.SetBool("isAttacking", true); 
         animator.SetBool("isWalking", false);
         animator.SetBool("isRunning", false);
-        // ---
 
+        // --- 1. VÜCUDU DÖNDÜRME ---
+        // Botun 'LookAt' yaparken devrilmemesi için sadece Y ekseninde (yatay) dönmesini sağla
+        Vector3 directionToLook = player.position - transform.position;
+        directionToLook.y = 0; // Y (dikey) farkı sıfırla
+        
+        // Aniden dönmesin, 'Angular Speed' ayarına uysun veya yumuşak dönsün
+        Quaternion lookRotation = Quaternion.LookRotation(directionToLook);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 10f); 
+        
         // Düşmanın hareket etmesini engelle
         agent.SetDestination(transform.position); 
-        transform.LookAt(player);
 
+        // --- 2. ATEŞ ETME ZAMANLAMASI ---
         if(!alreadyAttacked)
         {
-            animator.SetTrigger("Attack"); // Ateş etme animasyonunu tetikle
+            animator.SetTrigger("Attack");
 
-            // Mermi ateşleme kodun...
-            Rigidbody rb = Instantiate(projectile, firePoint.position, firePoint.rotation).GetComponent<Rigidbody>();
-            rb.AddForce(firePoint.forward * 32f, ForceMode.Impulse); 
+            // --- 3. MERMİ YÖNÜNÜ HESAPLAMA (EN ÖNEMLİ KISIM) ---
+
+            // Oyuncunun pivotu (ayakları) yerine merkezini (gövdesini) hedef al
+            // (Character Controller'ın varsayılan merkezi (Center Y) genelde 1'dir)
+            Vector3 targetPosition = player.position + Vector3.up * 1f;
+
+            // Namlu ucundan (firePoint) hedefin merkezine (targetPosition) giden
+            // 'gerçek' yönü hesapla
+            Vector3 directionToFire = (targetPosition - firePoint.position).normalized;
+
+            // 4. MERMİYİ ATEŞLEME
+            
+            // Mermiyi oluştur, ama rotasyonunu 'firePoint'in kendi rotasyonu DEĞİL,
+            // hesapladığımız bu 'directionToFire' yönünün rotasyonu yap
+            GameObject bullet = Instantiate(projectile, firePoint.position, Quaternion.LookRotation(directionToFire));
+            
+            // Rigidbody'sini al
+            Rigidbody rb = bullet.GetComponent<Rigidbody>();
+            
+            // Mermiyi, 'firePoint.forward' (namlunun baktığı yer) yönünde DEĞİL,
+            // hesapladığımız 'directionToFire' (gerçek hedef) yönünde fırlat
+            rb.AddForce(directionToFire * 32f, ForceMode.Impulse); 
+            
             ///
             
             alreadyAttacked = true;
@@ -189,18 +221,37 @@ public class AITarget : MonoBehaviour
     }
 
     public void TakeDamage(int damage)
+{
+    // Zaten ölmüşse tekrar hasar almasın
+    if (isDead) return;
+
+    health -= damage;
+
+    if (health <= 0)
     {
-        health -= damage;
-
-        if (health <=0) Invoke(nameof(DestroyEnemy), 0.5f);
-
+        Die(); // 'DestroyEnemy' yerine 'Die' fonksiyonunu çağır
     }
+}
 
-    private void DestroyEnemy()
-    {
-        Destroy(gameObject);
-    }
+    private void Die()
+{
+    isDead = true;
 
+    // Ölme animasyonunu tetikle
+    animator.SetTrigger("Die");
+
+    // Botun hareketini ve çarpışmasını durdur
+    agent.enabled = false; 
+    GetComponent<Collider>().enabled = false; // Modelinizin ana çarpıştırıcısını (örn. Capsule Collider) kapatır
+
+    // Botun "Audio Source"unu sustur (eğer varsa)
+    if (audioSource != null)
+        audioSource.Stop();
+
+    // 3 saniye sonra (veya animasyonunuz ne kadar sürüyorsa)
+    // objeyi oyundan tamamen sil
+    Destroy(gameObject, 3f); 
+}
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
