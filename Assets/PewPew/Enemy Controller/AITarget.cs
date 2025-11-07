@@ -21,6 +21,7 @@ public class AITarget : MonoBehaviour
    
    public float health;
 
+
    //Patroling
    public Vector3 walkPoint;
    bool walkPointSet;
@@ -55,6 +56,8 @@ public class AITarget : MonoBehaviour
     audioSource = GetComponent<AudioSource>();
 
     agentMaxSpeed = agent.speed;
+
+    
 }
 
    private void Update()
@@ -233,24 +236,37 @@ public class AITarget : MonoBehaviour
     }
 }
 
-    private void Die()
+private void Die()
 {
     isDead = true;
 
-    // Ölme animasyonunu tetikle
-    animator.SetTrigger("Die");
+    // 1. Ölme animasyonunu tetikle
+    if (animator != null)
+    {
+        animator.SetTrigger("Die");
+    }
 
-    // Botun hareketini ve çarpışmasını durdur
-    agent.enabled = false; 
-    GetComponent<Collider>().enabled = false; // Modelinizin ana çarpıştırıcısını (örn. Capsule Collider) kapatır
+    // 2. Botun hareketini ve çarpışmasını durdur
+    if (agent.enabled)
+    {
+        agent.isStopped = true; 
+        agent.enabled = false; 
+    }
+    
+    // 3. Botun ana çarpıştırıcısını kapat
+    //    (Bu, "havada kalmaya" neden olabilir ama fırlamayı önler)
+    CapsuleCollider mainCollider = GetComponent<CapsuleCollider>();
+    if (mainCollider != null)
+    {
+        mainCollider.enabled = false;
+    }
 
-    // Botun "Audio Source"unu sustur (eğer varsa)
+    // 4. Sesleri durdur
     if (audioSource != null)
         audioSource.Stop();
 
-    // 3 saniye sonra (veya animasyonunuz ne kadar sürüyorsa)
-    // objeyi oyundan tamamen sil
-    Destroy(gameObject, 3f); 
+    // 5. Animasyonun bitmesi için 3-5 saniye sonra objeyi yok et
+    Destroy(gameObject, 5f); 
 }
     private void OnDrawGizmosSelected()
     {

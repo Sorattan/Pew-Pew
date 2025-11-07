@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
     public int maxHealth = 100; // Maksimum can
     private int currentHealth;  // Mevcut can
     public Image healthBarFill;
+    private Animator animator;
 
     // Opsiyonel: Inspector'dan bir UI Image (Resim) sürükleyebilirsiniz
     // public Image healthBar; 
@@ -19,6 +20,9 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        animator = GetComponent<Animator>();
+
+
         if (healthBarFill != null)
     {
         healthBarFill.fillAmount = 1f; // '1f' tam dolu demektir
@@ -54,22 +58,30 @@ public class PlayerHealth : MonoBehaviour
 {
     Debug.Log("OYUNCU ÖLDÜ!");
 
+    // --- YENİ EKLENEN KOD BLOĞU ---
+    // Eğer bir Animator bulduysak, "Die" trigger'ını ateşle
+    if (animator != null)
+    {
+        animator.SetTrigger("Die");
+    }
+    // ---
+
+    // UIManager'ı bul ve "Öldün" ekranını göstermesini söyle
     UIManager uiManager = FindFirstObjectByType<UIManager>();
     if (uiManager != null)
     {
         uiManager.ShowGameOverScreen();
     }
 
-    // 2. Oyuncunun hareket etmesini ve ateş etmesini durdur
-    //    (Script adları sizde farklıysa burayı güncelleyin)
+    // Oyuncunun hareket etmesini ve ateş etmesini durdur
     GetComponent<ThirdPersonController>().enabled = false;
     GetComponent<ThirdPersonShooterController>().enabled = false;
 
-    // 3. Farenin kilidini aç ve görünür yap (butona tıklayabilmek için)
+    // Farenin kilidini aç ve görünür yap
     Cursor.lockState = CursorLockMode.None;
     Cursor.visible = true;
 
-    // 4. Bu script'i de durdur
+    // Bu script'i de durdur
     this.enabled = false; 
 }
 
