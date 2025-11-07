@@ -45,6 +45,10 @@ public class EquipWeapon : MonoBehaviour
     private bool isAiming;
     private bool isEquipped;
 
+    public bool HasWeapon => currentWeapon != null && isEquipped;
+    public Weapon CurrentWeapon => currentWeapon;
+    // public bool IsAiming => isAiming; // optional "shoot only while aiming"
+
     void Awake()
     {
         // Build quick lookup for sockets

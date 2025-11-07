@@ -6,8 +6,6 @@ using UnityEngine.Animations.Rigging;
 
 public class ThirdPersonShooterController : MonoBehaviour
 {
-    // private Animator Animator;
-
     [SerializeField] private CinemachineCamera aimVirtualCamera;
     [SerializeField] private float normalSensitivity;
     [SerializeField] private float aimSensitivity;
@@ -15,6 +13,7 @@ public class ThirdPersonShooterController : MonoBehaviour
     [SerializeField] private Transform pfBulletProjectile;
     [SerializeField] private Transform spawnBulletPosition;
 
+    private EquipWeapon equipWeapon;
     private ThirdPersonController thirdPersonController;
     private StarterAssetsInputs starterAssetsInputs;
 
@@ -22,7 +21,7 @@ public class ThirdPersonShooterController : MonoBehaviour
     {
         thirdPersonController = GetComponent<ThirdPersonController>();
         starterAssetsInputs = GetComponent<StarterAssetsInputs>();
-        // Animator = GetComponent<Animator>();
+        equipWeapon = GetComponent<EquipWeapon>(); 
     }
 
     // Update is called once per frame
@@ -32,13 +31,10 @@ public class ThirdPersonShooterController : MonoBehaviour
 
         Vector2 screenCenterPoint = new Vector2(Screen.width / 2f, Screen.height / 2f);
         Ray ray = Camera.main.ScreenPointToRay(screenCenterPoint);
-        //Transform hitTransfrom = null;
         if (Physics.Raycast(ray, out RaycastHit raycastHit, 999f, aimColliderLayerMask))
         {
             mouseWorldPosition = raycastHit.point;
-
             float targetRigW = starterAssetsInputs.aim ? 1f : 0f;
-            //hitTransfrom = raycastHit.transform;
         }
 
         if (starterAssetsInputs.aim)
@@ -46,7 +42,6 @@ public class ThirdPersonShooterController : MonoBehaviour
             aimVirtualCamera.gameObject.SetActive(true);
             thirdPersonController.SetSensitivity(aimSensitivity);
             thirdPersonController.SetRotateOnMove(false);
-            // Animator.SetLayerWeight(1, Mathf.Lerp(Animator.GetLayerWeight(1), 1f, Time.deltaTime * 10f));
 
             Vector3 worldAimTarget = mouseWorldPosition;
             worldAimTarget.y = transform.position.y;
@@ -58,30 +53,24 @@ public class ThirdPersonShooterController : MonoBehaviour
             aimVirtualCamera.gameObject.SetActive(false);
             thirdPersonController.SetSensitivity(normalSensitivity);
             thirdPersonController.SetRotateOnMove(true);
-            // Animator.SetLayerWeight(1, Mathf.Lerp(Animator.GetLayerWeight(1), 0f, Time.deltaTime * 10f));
         }
 
         if (starterAssetsInputs.shoot)
         {
-            //Hitscan
-            //if (hitTransfrom != null)
-            //{
-            //    // hit something
-            //    if (hitTransfrom.GetComponent<BulletTarget>() != null)
-            //    {
-            //        //hit target
-            //    }
-            //    else
-            //    {
-            //        //hit something else
-            //    }
-            //    Destroy(gameObject);
-            //}
+            // Only shoot if a weapon is actually equipped
+            if (equipWeapon == null || !equipWeapon.HasWeapon)
+            {
+                starterAssetsInputs.shoot = false;
+                return;
+            }
 
-            //Projectile
+            // If only shoot while aiming
+            // if (!equipWeapon.IsAiming) { starterAssetsInputs.shoot = false; return; }
+
             Vector3 aimDir = (mouseWorldPosition - spawnBulletPosition.position).normalized;
             Instantiate(pfBulletProjectile, spawnBulletPosition.position, Quaternion.LookRotation(aimDir, Vector3.up));
             starterAssetsInputs.shoot = false;
         }
+
     }
 }
