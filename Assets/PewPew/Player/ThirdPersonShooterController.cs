@@ -2,6 +2,7 @@ using StarterAssets;
 using Unity.Cinemachine;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 
 public class ThirdPersonShooterController : MonoBehaviour
 {
@@ -12,15 +13,15 @@ public class ThirdPersonShooterController : MonoBehaviour
     [SerializeField] private GameObject pfPlayerBullet;
     [SerializeField] private Transform spawnBulletPosition;
 
+    private EquipWeapon equipWeapon;
     private ThirdPersonController thirdPersonController;
     private StarterAssetsInputs starterAssetsInputs;
-    private Animator animator;
 
     private void Awake()
     {
         thirdPersonController = GetComponent<ThirdPersonController>();
         starterAssetsInputs = GetComponent<StarterAssetsInputs>();
-        animator = GetComponent<Animator>();
+        equipWeapon = GetComponent<EquipWeapon>(); 
     }
 
     // Update is called once per frame
@@ -30,11 +31,10 @@ public class ThirdPersonShooterController : MonoBehaviour
 
         Vector2 screenCenterPoint = new Vector2(Screen.width / 2f, Screen.height / 2f);
         Ray ray = Camera.main.ScreenPointToRay(screenCenterPoint);
-        //Transform hitTransfrom = null;
         if (Physics.Raycast(ray, out RaycastHit raycastHit, 999f, aimColliderLayerMask))
         {
             mouseWorldPosition = raycastHit.point;
-            //hitTransfrom = raycastHit.transform;
+            float targetRigW = starterAssetsInputs.aim ? 1f : 0f;
         }
 
         if (starterAssetsInputs.aim)
@@ -42,7 +42,6 @@ public class ThirdPersonShooterController : MonoBehaviour
             aimVirtualCamera.gameObject.SetActive(true);
             thirdPersonController.SetSensitivity(aimSensitivity);
             thirdPersonController.SetRotateOnMove(false);
-            animator.SetLayerWeight(1, Mathf.Lerp(animator.GetLayerWeight(1), 1f, Time.deltaTime * 10f));
 
             Vector3 worldAimTarget = mouseWorldPosition;
             worldAimTarget.y = transform.position.y;
@@ -54,16 +53,20 @@ public class ThirdPersonShooterController : MonoBehaviour
             aimVirtualCamera.gameObject.SetActive(false);
             thirdPersonController.SetSensitivity(normalSensitivity);
             thirdPersonController.SetRotateOnMove(true);
-            animator.SetLayerWeight(1, Mathf.Lerp(animator.GetLayerWeight(1), 0f, Time.deltaTime * 10f));
         }
 
    if (starterAssetsInputs.shoot)
         {
-            // 1. 'mouseWorldPosition' değişkeni, Update() fonksiyonunun en başında,
-            //    nişangahın baktığı (veya ıskaladığı) 'gerçek dünya' noktasını zaten hesapladı.
-            
-            // 2. Merminin gitmesi gereken yönü hesapla:
-            //    Yön = (Hedef Nokta 'mouseWorldPosition') - (Çıkış Noktası 'spawnBulletPosition')
+            // Only shoot if a weapon is actually equipped
+            if (equipWeapon == null || !equipWeapon.HasWeapon)
+            {
+                starterAssetsInputs.shoot = false;
+                return;
+            }
+
+            // If only shoot while aiming
+            // if (!equipWeapon.IsAiming) { starterAssetsInputs.shoot = false; return; }
+
             Vector3 aimDir = (mouseWorldPosition - spawnBulletPosition.position).normalized;
 
             // 3. Mermiyi namlu ucunda oluştur ve yönünü 'aimDir' olarak ayarla
@@ -81,5 +84,6 @@ public class ThirdPersonShooterController : MonoBehaviour
             // 6. Ateş etme girdisini sıfırla
             starterAssetsInputs.shoot = false;
         }
+
     }
 }

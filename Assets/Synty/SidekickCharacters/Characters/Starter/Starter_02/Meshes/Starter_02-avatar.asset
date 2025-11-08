@@ -851,8 +851,7 @@ Avatar:
             m_ID: 000000006ef88db7792daecfae87dfc90e5875692dec1a57820683f7c6e8badb96d794f76c1fb055d6e38760f3336c5102af746fd9f6a500af44b31cb76cc9e0246ce82616499c4e44417322479bb0b23cb78dc2913249d53b9ce4716fa289ef4ed115ad0305a5e8575c9d28438c4d2253941a6675cf3745289d6f6f082a6ff73f2028b8081db94688e763d387405803cde79f7054a6ea711e97b413e90221feaeb9e3e698b05454b40c8ad1b51874d7080d0fd3abb989f4c884860ee6b4fc7b5feffd26c47254cd6399c01f51ceb56d3cd2f2dcbe6c6a5e2300ef25d061df35
             m_AxesArray:
             - m_PreQ: {x: -0.4817055, y: -0.51764834, z: 0.48170477, w: 0.5176491}
-              m_PostQ: {x: -0.00000074505795, y: 0.000000029802319, z: 0.9993539,
-                w: 0.035943594}
+              m_PostQ: {x: -0.00000074505795, y: 0.000000029802319, z: 0.9993539, w: 0.035943594}
               m_Sgn: {x: 1, y: 1, z: 1}
               m_Limit:
                 m_Min: {x: -0.6981317, y: -0.6981317, z: -0.6981317}
@@ -1052,16 +1051,14 @@ Avatar:
               m_Length: 0.28402278
               m_Type: 1
             - m_PreQ: {x: -0.023067776, y: 0.0004518601, z: 0.66792715, w: -0.7438691}
-              m_PostQ: {x: -0.0005135833, y: -0.000000018510033, z: 0.0000000098953,
-                w: -0.9999999}
+              m_PostQ: {x: -0.0005135833, y: -0.000000018510033, z: 0.0000000098953, w: -0.9999999}
               m_Sgn: {x: -1, y: 1, z: 1}
               m_Limit:
                 m_Min: {x: -1.5707964, y: 0, z: -1.3962634}
                 m_Max: {x: 1.5707964, y: 0, z: 1.3962634}
               m_Length: 0.24188015
               m_Type: 1
-            - m_PreQ: {x: -0.7071105, y: -0.0000000074505797, z: 0.000000021420417,
-                w: -0.7071032}
+            - m_PreQ: {x: -0.7071105, y: -0.0000000074505797, z: 0.000000021420417, w: -0.7071032}
               m_PostQ: {x: -1, y: -0.000000016763803, z: 0.000000009313224, w: 0.0000051842057}
               m_Sgn: {x: 1, y: 1, z: 1}
               m_Limit:
@@ -1070,8 +1067,7 @@ Avatar:
               m_Length: 0.060470037
               m_Type: 1
             - m_PreQ: {x: 0.9481337, y: 0.29471037, z: -0.11775403, w: 0.017960431}
-              m_PostQ: {x: -0.054609153, y: 0.000000048428753, z: 0.000000059138955,
-                w: -0.9985078}
+              m_PostQ: {x: -0.054609153, y: 0.000000048428753, z: 0.000000059138955, w: -0.9985078}
               m_Sgn: {x: 1, y: -1, z: 1}
               m_Limit:
                 m_Min: {x: 0, y: -0.34906584, z: -0.87266463}
@@ -1079,8 +1075,7 @@ Avatar:
               m_Length: 0.040569577
               m_Type: 1
             - m_PreQ: {x: 0.009333542, y: 0.015194019, z: -0.34703526, w: 0.93768257}
-              m_PostQ: {x: -0.049982626, y: 0.00000004097818, z: 0.0000006770713,
-                w: -0.9987501}
+              m_PostQ: {x: -0.049982626, y: 0.00000004097818, z: 0.0000006770713, w: -0.9987501}
               m_Sgn: {x: 1, y: 1, z: 1}
               m_Limit:
                 m_Min: {x: 0, y: 0, z: -0.7853982}
@@ -1096,8 +1091,7 @@ Avatar:
               m_Length: 0.019945249
               m_Type: 1
             - m_PreQ: {x: 0.9499041, y: 0.3112283, z: -0.028415985, w: 0.0034281006}
-              m_PostQ: {x: -0.05236955, y: 0.000000033993267, z: -0.00000051061204,
-                w: -0.9986278}
+              m_PostQ: {x: -0.05236955, y: 0.000000033993267, z: -0.00000051061204, w: -0.9986278}
               m_Sgn: {x: 1, y: -1, z: 1}
               m_Limit:
                 m_Min: {x: 0, y: -0.1308997, z: -0.87266463}
@@ -1105,8 +1099,7 @@ Avatar:
               m_Length: 0.04281503
               m_Type: 1
             - m_PreQ: {x: 0.04484195, y: 0.014565943, z: -0.34885085, w: 0.9359917}
-              m_PostQ: {x: -0.05190981, y: 0.000000027474005, z: -0.00000013245149,
-                w: -0.9986518}
+              m_PostQ: {x: -0.05190981, y: 0.000000027474005, z: -0.00000013245149, w: -0.9986518}
               m_Sgn: {x: 1, y: 1, z: 1}
               m_Limit:
                 m_Min: {x: 0, y: 0, z: -0.7853982}
@@ -1114,8 +1107,7 @@ Avatar:
               m_Length: 0.041363753
               m_Type: 1
             - m_PreQ: {x: 0.04425404, y: 0.01626523, z: -0.31291425, w: 0.94861054}
-              m_PostQ: {x: -0.051909816, y: 0.000000027241178, z: -0.00000013250971,
-                w: -0.99865186}
+              m_PostQ: {x: -0.051909816, y: 0.000000027241178, z: -0.00000013250971, w: -0.99865186}
               m_Sgn: {x: 1, y: 1, z: 1}
               m_Limit:
                 m_Min: {x: 0, y: 0, z: -0.7853982}
@@ -1123,8 +1115,7 @@ Avatar:
               m_Length: 0.023267113
               m_Type: 1
             - m_PreQ: {x: 0.9485293, y: 0.28967232, z: 0.12791686, w: -0.0044131377}
-              m_PostQ: {x: -0.049442858, y: 0.000000040978183, z: -0.0000005963955,
-                w: -0.998777}
+              m_PostQ: {x: -0.049442858, y: 0.000000040978183, z: -0.0000005963955, w: -0.998777}
               m_Sgn: {x: 1, y: 1, z: 1}
               m_Limit:
                 m_Min: {x: 0, y: -0.34906584, z: -0.87266463}
@@ -1132,8 +1123,7 @@ Avatar:
               m_Length: 0.027616674
               m_Type: 1
             - m_PreQ: {x: 0.072740205, y: 0.013594347, z: -0.34853646, w: 0.9343695}
-              m_PostQ: {x: -0.05234743, y: -0.00000003725288, z: -0.00000025518224,
-                w: -0.9986289}
+              m_PostQ: {x: -0.05234743, y: -0.00000003725288, z: -0.00000025518224, w: -0.9986289}
               m_Sgn: {x: 1, y: 1, z: 1}
               m_Limit:
                 m_Min: {x: 0, y: 0, z: -0.7853982}
@@ -1157,8 +1147,7 @@ Avatar:
               m_Length: 0.039984744
               m_Type: 1
             - m_PreQ: {x: 0.061832704, y: 0.016219225, z: -0.34855944, w: 0.93510437}
-              m_PostQ: {x: -0.059221327, y: 0.000000027008346, z: 0.00000029016508,
-                w: -0.99824494}
+              m_PostQ: {x: -0.059221327, y: 0.000000027008346, z: 0.00000029016508, w: -0.99824494}
               m_Sgn: {x: 1, y: 1, z: 1}
               m_Limit:
                 m_Min: {x: 0, y: 0, z: -0.7853982}
@@ -1182,8 +1171,7 @@ Avatar:
               m_Length: 0.054442164
               m_Type: 1
             - m_PreQ: {x: -0.91746, y: 0.21430421, z: 0.058156103, w: 0.33008868}
-              m_PostQ: {x: 0.93268067, y: 0.00000007450579, z: -0.00000023841852,
-                w: -0.36070335}
+              m_PostQ: {x: 0.93268067, y: 0.00000007450579, z: -0.00000023841852, w: -0.36070335}
               m_Sgn: {x: 1, y: 1, z: -1}
               m_Limit:
                 m_Min: {x: 0, y: 0, z: -0.6981317}
@@ -1255,8 +1243,7 @@ Avatar:
               m_Length: 0.3601809
               m_Type: 1
             - m_PreQ: {x: 0.000445664, y: 0.009701253, z: 0.040960092, w: -0.9991137}
-              m_PostQ: {x: 0.000047951937, y: 0.000000029802322, z: -0.000000029802322,
-                w: -1}
+              m_PostQ: {x: 0.000047951937, y: 0.000000029802322, z: -0.000000029802322, w: -1}
               m_Sgn: {x: 1, y: 1, z: 1}
               m_Limit:
                 m_Min: {x: 0, y: -0.5235988, z: -0.87266463}
@@ -1535,94 +1522,94 @@ Avatar:
         m_X: []
     m_RootMotionSkeletonIndexArray: 
   m_TOS:
-    1769297934: pelvis/spine_01/spine_02/spine_03
-    3079534702: pelvis
-    3106836110: pelvis/spine_01/spine_02/spine_03/neck_01/head/headAttach
-    4102666667: pelvis/spine_01/spine_02/spine_03/neck_01/head/eye_l
-    3614709941: pelvis/spine_01/spine_02/spine_03/neck_01
-    3407993727: ik_hand_root
-    2997918535: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/ring_01_l/ring_02_l
-    575507523: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r
-    1911203412: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/ring_01_r
-    654176095: pelvis/thigh_l
-    4061041949: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/elbowAttach_r
-    2608793444: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/lowerarm_twist_01_l
-    330602270: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/ring_01_r/ring_02_r
-    4153726870: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l
-    3264067388: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/ring_01_l/ring_02_l/ring_03_l
-    1584032958: pelvis/thigh_r/calf_r
-    3016236016: ik_foot_root
-    1009823338: pelvis/spine_01/spine_02/spine_03/neck_01/head/eyeLight_r
-    3535682740: pelvis/spine_01/spine_02/spine_03/backAttach
-    3484298617: pelvis/spine_01
-    3540978952: pelvis/spine_01/spine_02/spine_03/neck_01/head
-    4263576297: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/ring_01_r/ring_02_r/ring_03_r
-    903832016: pelvis/thigh_r/calf_r/foot_r/ball_r
-    2903888206: pelvis/spine_01/spine_02/spine_03/clavicle_r
-    89981284: ik_foot_root/ik_foot_r
-    577978692: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/ring_01_l
-    2393059672: pelvis/spine_01/spine_02/spine_03/clavicle_r/shoulderAttach_r
-    3546539912: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/pinky_01_r
-    2712113020: pelvis/thigh_r/calf_r/kneeAttach_r
     1810697010: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/elbowAttach_l
+    1769297934: pelvis/spine_01/spine_02/spine_03
+    2608793444: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/lowerarm_twist_01_l
+    3535682740: pelvis/spine_01/spine_02/spine_03/backAttach
     3515485364: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/thumb_01_r/thumb_02_r/thumb_03_r
     714886280: pelvis/thigh_l/thigh_twist_01_l
+    1840631377: pelvis/thigh_l/calf_l/foot_l/ball_l
+    3079534702: pelvis
+    3386869678: pelvis/spine_01/spine_02
+    509207544: pelvis/spine_01/spine_02/spine_03/neck_01/head/faceAttach
+    1126318762: pelvis/spine_01/spine_02/spine_03/clavicle_l/shoulderAttach_l
+    3458579377: pelvis/hipAttach_r
+    4283579399: ik_foot_root/ik_foot_l
     0: 
     3686459590: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l
-    4166360751: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/lowerarm_twist_01_r
-    3903128835: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r
-    3873683886: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/thumb_01_r
-    10876633: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/middle_01_l/middle_02_l
-    3949068170: ik_hand_root/ik_hand_gun/ik_hand_r
-    3706901052: pelvis/thigh_r
-    3386869678: pelvis/spine_01/spine_02
-    3458579377: pelvis/hipAttach_r
-    509207544: pelvis/spine_01/spine_02/spine_03/neck_01/head/faceAttach
-    1437605740: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/index_01_l
-    1910807611: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/thumb_01_l/thumb_02_l
-    1438577390: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/upperarm_twist_01_r
-    1840631377: pelvis/thigh_l/calf_l/foot_l/ball_l
-    1856685487: pelvis/thigh_l/calf_l/kneeAttach_l
-    4151257608: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/middle_01_r
-    3771296951: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/pinky_01_l
-    4018774639: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/thumb_01_l/thumb_02_l/thumb_03_l
-    3089637439: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/middle_01_r/middle_02_r
-    1713017939: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/index_01_r
-    292471529: ik_hand_root/ik_hand_gun/ik_hand_l
-    4283579399: ik_foot_root/ik_foot_l
-    1126318762: pelvis/spine_01/spine_02/spine_03/clavicle_l/shoulderAttach_l
     652766244: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/pinky_01_l/pinky_02_l
+    3444863684: pelvis/thigh_l/calf_l
     243696840: pelvis/spine_01/spine_02/spine_03/neck_01/head/eye_r
-    1161285493: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/index_01_r/index_02_r
     3877453690: pelvis/thigh_r/thigh_twist_01_r
+    1856685487: pelvis/thigh_l/calf_l/kneeAttach_l
+    788313825: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/prop_r
+    1318865174: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/pinky_01_l/pinky_02_l/pinky_03_l
+    1161285493: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/index_01_r/index_02_r
+    1437605740: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/index_01_l
+    3106836110: pelvis/spine_01/spine_02/spine_03/neck_01/head/headAttach
+    330602270: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/ring_01_r/ring_02_r
+    3484298617: pelvis/spine_01
+    1910807611: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/thumb_01_l/thumb_02_l
+    4153726870: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l
+    4102666667: pelvis/spine_01/spine_02/spine_03/neck_01/head/eye_l
+    4166360751: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/lowerarm_twist_01_r
+    1438577390: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/upperarm_twist_01_r
+    3727559639: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/prop_l
     1461382189: pelvis/spine_01/spine_02/spine_03/clavicle_l
+    3540978952: pelvis/spine_01/spine_02/spine_03/neck_01/head
+    3614709941: pelvis/spine_01/spine_02/spine_03/neck_01
+    1366045683: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/index_01_l/index_02_l/index_03_l
     1869917954: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/middle_01_l
+    1889527757: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/pinky_01_r/pinky_02_r/pinky_03_r
+    1619518422: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/index_01_l/index_02_l
+    3407993727: ik_hand_root
+    4119159853: pelvis/hipAttachFront
+    3903128835: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r
+    3264067388: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/ring_01_l/ring_02_l/ring_03_l
+    1584032958: pelvis/thigh_r/calf_r
+    3873683886: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/thumb_01_r
+    478859123: pelvis/thigh_l/calf_l/calf_twist_01_l
     2157485139: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/upperarm_twist_01_l
     3578344081: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/thumb_01_l
-    2080158950: pelvis/spine_01/spine_02/spine_03/neck_01/head/jaw
-    1414836376: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/thumb_01_r/thumb_02_r
-    875202258: pelvis/hipAttach_l
-    3356965880: pelvis/hipAttachBack
-    788313825: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/prop_r
-    3444863684: pelvis/thigh_l/calf_l
-    3727559639: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/prop_l
-    1619518422: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/index_01_l/index_02_l
-    478859123: pelvis/thigh_l/calf_l/calf_twist_01_l
-    144678719: ik_hand_root/ik_hand_gun
-    4152559234: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l
-    2913698344: pelvis/thigh_r/calf_r/calf_twist_01_r
-    532715875: pelvis/thigh_l/calf_l/foot_l
-    481510575: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/middle_01_l/middle_02_l/middle_03_l
-    1318865174: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/pinky_01_l/pinky_02_l/pinky_03_l
-    1366045683: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/index_01_l/index_02_l/index_03_l
-    1889527757: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/pinky_01_r/pinky_02_r/pinky_03_r
-    4119159853: pelvis/hipAttachFront
+    2997918535: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/ring_01_l/ring_02_l
     3326055177: pelvis/spine_01/spine_02/spine_03/neck_01/head/eyeLight_l
+    4263576297: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/ring_01_r/ring_02_r/ring_03_r
     636420131: pelvis/thigh_r/calf_r/foot_r
+    903832016: pelvis/thigh_r/calf_r/foot_r/ball_r
+    2913698344: pelvis/thigh_r/calf_r/calf_twist_01_r
+    144678719: ik_hand_root/ik_hand_gun
     1869585704: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/index_01_r/index_02_r/index_03_r
+    4152559234: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l
+    4151257608: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/middle_01_r
+    2080158950: pelvis/spine_01/spine_02/spine_03/neck_01/head/jaw
+    3771296951: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/pinky_01_l
+    10876633: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/middle_01_l/middle_02_l
+    532715875: pelvis/thigh_l/calf_l/foot_l
+    2903888206: pelvis/spine_01/spine_02/spine_03/clavicle_r
+    3089637439: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/middle_01_r/middle_02_r
+    3016236016: ik_foot_root
+    4018774639: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/thumb_01_l/thumb_02_l/thumb_03_l
+    89981284: ik_foot_root/ik_foot_r
+    577978692: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/ring_01_l
+    1713017939: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/index_01_r
+    1414836376: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/thumb_01_r/thumb_02_r
     56115335: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/pinky_01_r/pinky_02_r
     681401431: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r
     1186536712: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/middle_01_r/middle_02_r/middle_03_r
+    2393059672: pelvis/spine_01/spine_02/spine_03/clavicle_r/shoulderAttach_r
+    575507523: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r
+    1911203412: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/ring_01_r
+    875202258: pelvis/hipAttach_l
+    3546539912: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/hand_r/pinky_01_r
+    481510575: pelvis/spine_01/spine_02/spine_03/clavicle_l/upperarm_l/lowerarm_l/hand_l/middle_01_l/middle_02_l/middle_03_l
+    654176095: pelvis/thigh_l
+    3949068170: ik_hand_root/ik_hand_gun/ik_hand_r
+    2712113020: pelvis/thigh_r/calf_r/kneeAttach_r
+    1009823338: pelvis/spine_01/spine_02/spine_03/neck_01/head/eyeLight_r
+    3706901052: pelvis/thigh_r
+    3356965880: pelvis/hipAttachBack
+    292471529: ik_hand_root/ik_hand_gun/ik_hand_l
+    4061041949: pelvis/spine_01/spine_02/spine_03/clavicle_r/upperarm_r/lowerarm_r/elbowAttach_r
   m_HumanDescription:
     serializedVersion: 3
     m_Human:
@@ -2240,8 +2227,7 @@ Avatar:
     - m_Name: calf_twist_01_l
       m_ParentName: calf_l
       m_Position: {x: 0.17972955, y: -0.0000002433259, z: 0.0000000575925}
-      m_Rotation: {x: -0.00000002490374, y: -0.00000032786636, z: -0.0000013815512,
-        w: 1}
+      m_Rotation: {x: -0.00000002490374, y: -0.00000032786636, z: -0.0000013815512, w: 1}
       m_Scale: {x: 1, y: 1, z: 1}
     - m_Name: foot_l
       m_ParentName: calf_l
@@ -2276,8 +2262,7 @@ Avatar:
     - m_Name: calf_twist_01_r
       m_ParentName: calf_r
       m_Position: {x: -0.17972955, y: 0.00000024333437, z: -0.0000000575925}
-      m_Rotation: {x: -0.000000024904278, y: -0.00000032786636, z: -0.0000013815994,
-        w: 1}
+      m_Rotation: {x: -0.000000024904278, y: -0.00000032786636, z: -0.0000013815994, w: 1}
       m_Scale: {x: 1, y: 1, z: 1}
     - m_Name: foot_r
       m_ParentName: calf_r
@@ -2302,8 +2287,7 @@ Avatar:
     - m_Name: spine_02
       m_ParentName: spine_01
       m_Position: {x: -0.068373114, y: 0.0014307863, z: -0.000000006042377}
-      m_Rotation: {x: 0.0000000019682742, y: -0.000000044026425, z: -0.024309179,
-        w: 0.99970454}
+      m_Rotation: {x: 0.0000000019682742, y: -0.000000044026425, z: -0.024309179, w: 0.99970454}
       m_Scale: {x: 1, y: 1, z: 1}
     - m_Name: spine_03
       m_ParentName: spine_02
