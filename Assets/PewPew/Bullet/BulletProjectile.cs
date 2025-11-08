@@ -5,7 +5,6 @@ public class BulletProjectile : MonoBehaviour
     public int damage = 10; 
 
     /**
-     * Bu fonksiyonun çalıştığını KONSOLDAKİ LOG İLE KANITLADIN.
      * Şimdi hasar verme kodunu buraya ekliyoruz.
      */
     private void OnCollisionEnter(Collision collision)
@@ -25,7 +24,7 @@ public class BulletProjectile : MonoBehaviour
     }
     else
     {
-        // EĞER SİSTEM ÇALIŞMIYORSA, SEBEBİ BUDUR
+        
         Debug.LogWarning("PlayerHealth script'i BULUNAMADI! 'GetComponentInParent' başarısız oldu. 'PlayerArmature' objende 'PlayerHealth.cs' script'i ekli mi?");
     }
     

@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI; // Opsiyonel: Eğer bir UI can barı kullanıyorsanız bu satır gerekli
+using UnityEngine.UI; 
 using StarterAssets;
 
 public class PlayerHealth : MonoBehaviour
@@ -58,7 +58,7 @@ public class PlayerHealth : MonoBehaviour
 {
     Debug.Log("OYUNCU ÖLDÜ!");
 
-    // --- YENİ EKLENEN KOD BLOĞU ---
+    
     // Eğer bir Animator bulduysak, "Die" trigger'ını ateşle
     if (animator != null)
     {
@@ -81,18 +81,9 @@ public class PlayerHealth : MonoBehaviour
     Cursor.lockState = CursorLockMode.None;
     Cursor.visible = true;
 
-    // Bu script'i de durdur
     this.enabled = false; 
 }
 
     
-    // === ÇARPIŞMA FONKSİYONU (EN ÖNEMLİ KISIM) ===
-
-    /**
-     * Bu fonksiyon, SADECE 'Character Controller' bileşenine
-     * başka bir collider çarptığında otomatik olarak çağrılır.
-     * Standart 'OnCollisionEnter' bu bileşenle ÇALIŞMAZ.
-     */
-    // Bu fonksiyon, Character Controller'a bir şey çarptığında çalışır
 
 }

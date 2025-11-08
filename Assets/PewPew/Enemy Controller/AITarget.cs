@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.AI; // NavMeshAgent için bu kütüphane şart
+using UnityEngine.AI; 
 
 public class AITarget : MonoBehaviour
 {
@@ -32,7 +32,7 @@ public class AITarget : MonoBehaviour
    bool alreadyAttacked;
    public GameObject projectile;
 
-   [Header("AI Behavior")] // Inspector'da düzenli durması için başlık
+   [Header("AI Behavior")] 
     public float patrolSpeed = 1.2f; // Devriye atarkenki yürüme hızı
     public float patrolWaitTime = 3f; // Devriye noktasında bekleme süresi
 
@@ -41,7 +41,7 @@ public class AITarget : MonoBehaviour
    
 
 
-    // States 
+    
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
     
@@ -50,7 +50,7 @@ public class AITarget : MonoBehaviour
     player = GameObject.FindGameObjectWithTag("Player").transform; 
     agent = GetComponent<NavMeshAgent>();
 
-    // Animator'u bul (Modelin bir alt obje olduğunu varsayarak)
+    // Animator'u bul 
     animator = GetComponentInChildren<Animator>(); 
 
     audioSource = GetComponent<AudioSource>();
@@ -64,14 +64,11 @@ public class AITarget : MonoBehaviour
     {
         if (isDead) return;
 
-        // Check for sight and attack range
+        
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-        // --- YENİ MANTIK BLOĞU ---
-
-        // 1. Durum: SALDIRI
-        // Oyuncu hem görüş menzilinde hem de saldırı menzilindeyse
+        
         if (playerInSightRange && playerInAttackRange)
         {
             AttackPlayer();
@@ -91,10 +88,7 @@ public class AITarget : MonoBehaviour
             Patroling();
         }
 
-        // --- ESKİ MANTIK (Artık buna gerek yok) ---
-        // if(!playerInSightRange && !playerInAttackRange) Patroling();
-        // if(playerInSightRange && playerInAttackRange) ChasePlayer();
-        // if(playerInAttackRange && playerInSightRange) AttackPlayer();
+    
     }
 
     private void Patroling()
@@ -128,7 +122,7 @@ public class AITarget : MonoBehaviour
         // 4. NOKTAYA VARMA KONTROLÜ
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
-        // Noktaya vardığımızda (ve hala beklemiyorsak)
+        // Noktaya vardığımızda 
         if (walkPointSet && distanceToWalkPoint.magnitude < 1.5f)
         {
             walkPointSet = false; // Hedef kalmadı
@@ -171,7 +165,6 @@ public class AITarget : MonoBehaviour
         animator.SetBool("isRunning", false);
 
         // --- 1. VÜCUDU DÖNDÜRME ---
-        // Botun 'LookAt' yaparken devrilmemesi için sadece Y ekseninde (yatay) dönmesini sağla
         Vector3 directionToLook = player.position - transform.position;
         directionToLook.y = 0; // Y (dikey) farkı sıfırla
         
@@ -203,14 +196,11 @@ public class AITarget : MonoBehaviour
             // hesapladığımız bu 'directionToFire' yönünün rotasyonu yap
             GameObject bullet = Instantiate(projectile, firePoint.position, Quaternion.LookRotation(directionToFire));
             
-            // Rigidbody'sini al
             Rigidbody rb = bullet.GetComponent<Rigidbody>();
             
             // Mermiyi, 'firePoint.forward' (namlunun baktığı yer) yönünde DEĞİL,
             // hesapladığımız 'directionToFire' (gerçek hedef) yönünde fırlat
             rb.AddForce(directionToFire * 32f, ForceMode.Impulse); 
-            
-            ///
             
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
@@ -282,14 +272,12 @@ public void OnFootstep()
     // Eğer bir ayak sesi atanmışsa ve hoparlör (audioSource) varsa...
     if (footstepSound != null && audioSource != null)
     {
-        // ...o sesi bir kez çal.
-        // PlayOneShot, mevcut sesi kesmeden üstüne yeni ses çalabilmenizi sağlar.
-        // Adım sesleri için mükemmeldir.
+       
         audioSource.PlayOneShot(footstepSound);
     }
 }
 
-// 'Invoke' tarafından 'patrolWaitTime' saniye sonra çağrılır
+
     private void StopWaiting()
     {
         isWaiting = false;

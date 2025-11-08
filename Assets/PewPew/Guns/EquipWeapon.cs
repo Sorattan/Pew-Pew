@@ -47,6 +47,7 @@ public class EquipWeapon : MonoBehaviour
 
     public bool HasWeapon => currentWeapon != null && isEquipped;
     public Weapon CurrentWeapon => currentWeapon;
+    public bool IsEquipped => isEquipped;
     // public bool IsAiming => isAiming; // optional "shoot only while aiming"
 
     void Awake()
@@ -136,7 +137,14 @@ public class EquipWeapon : MonoBehaviour
         Physics.Raycast(bottomRay, out bottomRayHitInfo, rayLength, weaponMask);
     }
     private void Equip()
-    {
+    {  
+        // Block picking up a new weapon if we're already holding one
+        if (isEquipped && currentWeapon != null)
+        {
+            Debug.Log("Already holding a weapon. Press Q to unequip first.");
+            return;
+        }
+
         RaycastHandler();
 
         // pick whichever ray hit last
