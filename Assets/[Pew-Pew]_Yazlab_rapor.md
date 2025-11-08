@@ -34,10 +34,6 @@ Bu oyunun geliştirilmesindeki amaç:
 | **VS Code / Rider / Visual Studio** | Kod editörü |
 | **Photoshop / GIMP / Blender (isteğe bağlı)** | Görsel ve model tasarımı |
 
-## 🧩 Sistem Şeması
-> Aşağıdaki diyagram, oyunun genel yapısını göstermektedir.
-![alt text](https://r.resimlink.com/Z8os2jF.jpg)
-
 
 ## 🕹️ Oyun Mekanikleri ve Blok Diyagram
 
