@@ -24632,6 +24632,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 775601f6b1f2c8444935344820c726fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  K: {fileID: 0}
+  Panel: {fileID: 0}
+  Smenu: {fileID: 0}
+  Sldr: {fileID: 0}
+  SensK: 0
 --- !u!1001 &1860039629
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27380,7 +27385,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2103442286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29250,9 +29255,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a672b46f32c26b4382772a695505297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aimRig: {fileID: 1196554424}
-  aimTarget: {fileID: 2064764991}
-  rigBlendSpeed: 10
   aimVirtualCamera: {fileID: 404754802}
   normalSensitivity: 1.2
   aimSensitivity: 0.7
