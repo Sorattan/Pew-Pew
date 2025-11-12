@@ -177,9 +177,11 @@ namespace Synty.SidekickCharacters
             {
                 return File.ReadAllText(_VERSION_FILE);
             }
-            
+
             return null;
         }
+
+#if UNITY_EDITOR
 
         private void DownloadLatestDBVersion()
         {
@@ -207,6 +209,8 @@ namespace Synty.SidekickCharacters
 
             client.DownloadFileAsync(new System.Uri(_GIT_DB_URL), _DB_PACKAGE_CACHE);
         }
+        #endif
+
 
         private async void DownloadLatestToolVersion()
         {
