@@ -5,12 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
-    /*public GameObject K;
-    public GameObject Panel;
+    public GameObject K;
     public GameObject Smenu;
     public Slider Sldr;
 
-    public float SensK;*/
+    public float SensK;
     
     public void Cikis()
     {
@@ -25,34 +24,36 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    /*void Setting(GameObject kapanacakolan, GameObject acilacakolan, GameObject panel)
+    void Setting(GameObject kapanacakolan, GameObject acilacakolan)
     {
         kapanacakolan.SetActive(false);
         acilacakolan.SetActive(true);
-        panel.SetActive(false);
         Smenu.SetActive(true);
     }
 
     public void Settings()
     {
-        Setting(K, Smenu, Panel);
+        Setting(K, Smenu);
     }
 
     private void Update()
     {
-        SensK = Sldr.value;
+        if (Sldr != null)
+        {
 
-        PlayerPrefs.SetFloat("Sens", SensK);
+            SensK = Sldr.value;
 
-        print(PlayerPrefs.GetFloat("Sens"));
+            PlayerPrefs.SetFloat("Sens", SensK);
+
+            print(PlayerPrefs.GetFloat("Sens"));
+        }
     }
 
     public void GeriD()
     {
-        Panel.SetActive(true);
         Smenu.SetActive(false);
         K.SetActive(true);
-    }*/
+    }
 
 
 }
