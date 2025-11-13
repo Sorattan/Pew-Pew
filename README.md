@@ -118,7 +118,7 @@ Menü kontrolü `(MenuController)`, sahne geçişleri `(SceneManager.LoadScene()
 | Pause menüsünün sürekli açık kalması | `Cursor.visible` ve `SetActive(false)` ayarları düzenlendi |
 | Sahne geçişlerinin otomatik başlaması | `StartGame()` buton kontrolü eklendi |
 | Unity LSP (Language Server) hataları | Kod dosyalarında `using System.Collections` yazım hatası düzeltildi |
-|NPC objesi NavMesh Agent bileşeniyle etkileşime girmeme hataları| Çözüm olarak NavMesh Surface yeniden bake edilip, EnemyAI script’inde agent.SetDestination() çağrısı güncellendi.|
+|NPC objesi NavMesh Agent bileşeniyle etkileşime girmeme hataları| Çözüm olarak NavMesh Surface yeniden bake edilip, AITarget script’inde agent.SetDestination() çağrısı güncellendi.|
 |Ana karakterin silah tutuş pozisyonu bozuk görünmesi|Target objesi RightHand transform’una yeniden tanımlandı.|
 
 
