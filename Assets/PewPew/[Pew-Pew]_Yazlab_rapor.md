@@ -6,8 +6,9 @@ _Yazılım Geliştirme Laboratuvarı 1 Proje Raporu_
 Ömer Faruk Sarı\
 Emirhan Bıkmaz
 
+
 ## 🎯 Proje Tanıtımı
-Bu proje, **Unity oyun motoru** kullanılarak geliştirilen bir [türünü yaz: örn. FPS, platform, puzzle, arcade] oyunudur.  
+Bu proje, **Unity oyun motoru** kullanılarak geliştirilen bir TPS oyunudur.  
 Oyunun amacı, oyuncuya strateji geliştirerek görevleri tamamlamayı ve yeni çözümler üretme becerisini geliştirmeyi hedeflemektedir. 
 
 **Temel Özellikler:**
@@ -18,12 +19,14 @@ Oyunun amacı, oyuncuya strateji geliştirerek görevleri tamamlamayı ve yeni �
 - Basit AI ve düşman davranışları
 - NPC ile konuşma ve bilgi alma
 
+
 ## 🎯 Amaç ve Hedefler
 Bu oyunun geliştirilmesindeki amaç:
 -  Oyun programlama mantığını ve Unity C# temellerini öğrenmek .
 -  Sahne geçişleri, UI sistemleri, event yönetimi gibi Unity bileşenlerinde pratik yapmak.
 -  Git temellerini kullanarak farklı branch'ler  üzerinden ilerleyerek ortak proje yürütmek.
 -  Unity gibi oyun programlarını genel olarak nasıl geliştirildiğini öğrenmek.
+
 
 ## ⚙️ Kullanılan Teknolojiler
 | Teknoloji | Kullanım Amacı |
@@ -32,11 +35,6 @@ Bu oyunun geliştirilmesindeki amaç:
 | **C# (MonoBehaviour)** | Oyun mantığının yazılması |
 | **Git & GitHub** | Versiyon kontrolü ve ekip çalışması |
 | **VS Code / Rider / Visual Studio** | Kod editörü |
-| **Photoshop / GIMP / Blender (isteğe bağlı)** | Görsel ve model tasarımı |
-
-## 🧩 Sistem Şeması
-> Aşağıdaki diyagram, oyunun genel yapısını göstermektedir.
-![alt text](https://r.resimlink.com/Z8os2jF.jpg)
 
 
 ## 🕹️ Oyun Mekanikleri ve Blok Diyagram
@@ -44,10 +42,9 @@ Bu oyunun geliştirilmesindeki amaç:
 **Temel Oyun Döngüsü:**
 1. Oyuncu oyuna başlar.
 2. NPC oyun hakkında bilgilendirme yapar.
-3. Öncelikle üzerine saldıran düşmanları öldürür.
-4. Alandaki düşmanların tamamını öldürür.
-5. Belirtilen koşullar sağlanırsa oyun biter.
-6. Oyuncu “Retry” veya “Main Menu” seçenekleriyle ilerleyebilir.
+3. Alandaki düşmanların tamamını öldürür.
+4. Oyuncu ya da bütün düşmanlar ölürse oyun biter.
+5. Oyuncu “Retry” veya “Main Menu” seçenekleriyle ilerleyebilir.
 
 
 **Blok Diyagram:**
@@ -65,21 +62,19 @@ Bu oyunun geliştirilmesindeki amaç:
 2. Continue butonuna basınca oyun devam eder.
 3. Quit butonuna basınca oyundan çıkılır.
 
+
 ## 🖥️ Oyun Ekranları ve Arayüz Tasarımı
 
-
 > Ana karakter ölünce açılan ekran görünmektedir.
-![alt text](https://r.resimlink.com/Lcl5k0XVyxi.png)
+![alt text](https://r.resimlink.com/jcNXsBplfTGD.png)
 
 Burada görmüş olduğunuz görüntü ana karakterin girmiş olduğu çatışmada öldükten sonra karşısında botların da bulunduğu bir anlık bir görüntüdür.
-1. Try Again butonuna tıklayınca oyun tekrardan başlar.
-
+Try Again butonuna tıklayınca oyun tekrardan başlar.
 
 
 ## 📚 Literatür Taraması ve Karşılaştırma
 Bu bölümde literatürdeki benzer oyun veya projelere yer verilmelidir.
 
-**Örnek:**
 -[Kaynak 1] “Development of a 3D Shooter Game Using Unity Engine” – IEEE, 2021 \
 Bu çalışmada, Unity oyun motoru kullanılarak birinci şahıs kamera açısına sahip 3D nişancı türünde bir oyun geliştirilmiştir. Oyunda temel olarak oyuncunun belirli hedefleri vurması ve bölüm içinde ilerlemesi amaçlanmıştır. Proje, Unity’nin fizik sistemi, ışıklandırma ve kullanıcı arayüzü bileşenlerini kullanarak oyun mekaniği oluşturmuştur.
 
@@ -102,7 +97,6 @@ Diğer örneklerde birden fazla bölüm veya seviye bulunurken, bizim projemiz t
 Kullanıcı Arayüzü (UI) Basitliği:
 Literatürdeki oyunlar genellikle karmaşık menü sistemlerine sahipken, biz sade ve işlevsel bir Start / Pause / Quit menü yapısı tasarladık.
 
-
 Takım Çalışması ve GitHub Kullanımı:
 Çoğu geliştirme çalışması bireysel örneklerden oluşurken, bu proje çoklu geliştirici ile Git ve Github versiyon kontrolü kullanılarak yürütülmüştür.
 
@@ -110,12 +104,12 @@ Kendi Script ve Fonksiyonlarımız:\
 Menü kontrolü `(MenuController)`, sahne geçişleri `(SceneManager.LoadScene())`, ve duraklatma işlevleri `(PauseMenu)` tamamen ekip tarafından yazılmış özgün script’lerle sağlanmıştır.
 
 
-
 ## 🧱 Kullanılan Yazılım Mimarileri ve Teknikler
 - **Event-Driven Yapı:** Butonlar ve input olayları `OnClick()`, `GetKeyDown()` gibi event’lerle yönetilmiştir.  
 - **Modüler Kodlama:** Menü, karakter kontrolü, skor sistemi ayrı script’ler halindedir.  
 - **Scene Yönetimi:** Unity’nin `SceneManager` sınıfı kullanılarak sahne geçişleri yapılmıştır.  
 - **Prefab Kullanımı:** Tekrarlayan nesneler prefab olarak tanımlanmıştır.
+
 
 ## ⚠️ Karşılaşılan Zorluklar ve Çözümler
 | Zorluk | Çözüm |
@@ -128,8 +122,6 @@ Menü kontrolü `(MenuController)`, sahne geçişleri `(SceneManager.LoadScene()
 |Ana karakterin silah tutuş pozisyonu bozuk görünmesi|Target objesi RightHand transform’una yeniden tanımlandı.|
 
 
-
-
 ## 🔄 Proje Süreci ve GitHub Kullanımı
 - Her üye kendi **branch’inde** geliştirme yapmıştır.  
 - `feature/`, `main/`,  gibi branch yapısı kullanılmıştır.  
@@ -139,11 +131,13 @@ Menü kontrolü `(MenuController)`, sahne geçişleri `(SceneManager.LoadScene()
   - Login Page Second Commit
 -Gibi açıklamalarla commitler yapılmıştır.
 
+
 ## 🧠 Sonuç ve Kazanımlar
 Bu proje sayesinde:
 - Unity oyun geliştirme temelleri öğrenildi.
 - Takım çalışmasında Git ve versiyon kontrol sistemleri etkin kullanıldı.
 - Hata yönetimi, UI tasarımı ve kullanıcı etkileşimi konusunda deneyim kazanıldı.
+
 
 ## 📚 Kaynakça
 1. https://docs.unity3d.com/  
