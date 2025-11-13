@@ -42,21 +42,21 @@ Bu oyunun geliştirilmesindeki amaç:
 **Temel Oyun Döngüsü:**
 1. Oyuncu oyuna başlar.
 2. NPC oyun hakkında bilgilendirme yapar.
-4. Alandaki düşmanların tamamını öldürür.
-5. Oyuncu ya da bütün düşmanlar ölürse oyun biter.
-6. Oyuncu “Retry” veya “Main Menu” seçenekleriyle ilerleyebilir.
+3. Alandaki düşmanların tamamını öldürür.
+4. Oyuncu ya da bütün düşmanlar ölürse oyun biter.
+5. Oyuncu “Retry” veya “Main Menu” seçenekleriyle ilerleyebilir.
 
 
 **Blok Diyagram:**
 > Aşağıdaki oyunun Ana Menü'sü görünmektedir.
-![alt text](https://r.resimlink.com/bOuMp.png)
+![alt text](https://r.resimlink.com/BQbjxs41G.png)
 
 1. Start butonuna basılınca oyun başlar.
 2. Quit butonuna basılınca oyundan çıkılır.
 3. Settings butonuna basılınca oyun ayarları bölümüne yönlendirir.
 
 > Oyun durdurulunca açılan ekran görünmektedir.
-![alt text](https://r.resimlink.com/lt2zP.png)
+![alt text](https://r.resimlink.com/eXtl_KWydG.png)
 
 1. Menu butonuna basınca ana menüye yönlendirilir.
 2. Continue butonuna basınca oyun devam eder.
@@ -69,13 +69,12 @@ Bu oyunun geliştirilmesindeki amaç:
 ![alt text](https://r.resimlink.com/jcNXsBplfTGD.png)
 
 Burada görmüş olduğunuz görüntü ana karakterin girmiş olduğu çatışmada öldükten sonra karşısında botların da bulunduğu bir anlık bir görüntüdür.
-1. Try Again butonuna tıklayınca oyun tekrardan başlar.
+Try Again butonuna tıklayınca oyun tekrardan başlar.
 
 
 ## 📚 Literatür Taraması ve Karşılaştırma
 Bu bölümde literatürdeki benzer oyun veya projelere yer verilmelidir.
 
-**Örnek:**
 -[Kaynak 1] “Development of a 3D Shooter Game Using Unity Engine” – IEEE, 2021 \
 Bu çalışmada, Unity oyun motoru kullanılarak birinci şahıs kamera açısına sahip 3D nişancı türünde bir oyun geliştirilmiştir. Oyunda temel olarak oyuncunun belirli hedefleri vurması ve bölüm içinde ilerlemesi amaçlanmıştır. Proje, Unity’nin fizik sistemi, ışıklandırma ve kullanıcı arayüzü bileşenlerini kullanarak oyun mekaniği oluşturmuştur.
 
